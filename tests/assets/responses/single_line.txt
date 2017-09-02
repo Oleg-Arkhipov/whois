@@ -1,0 +1,75 @@
+Domain Name: BEST.INFO
+Registry Domain ID: D2272416-LRMS
+Registrar WHOIS Server:
+Registrar URL: http://www.ascio.com
+Updated Date: 2017-07-13T22:21:47Z
+Creation Date: 2002-07-13T19:40:10Z
+Registry Expiry Date: 2018-07-13T19:40:10Z
+Registrar Registration Expiration Date:
+Registrar: Ascio Technologies, Inc. Danmark - Filial af Ascio technologies, Inc. USA
+Registrar IANA ID: 106
+Registrar Abuse Contact Email: abuse@ascio.com
+Registrar Abuse Contact Phone: +44.2070159370
+Reseller:
+Domain Status: ok https://icann.org/epp#ok
+Registry Registrant ID: C12543263-LRMS
+Registrant Name: BEST, a. s.
+Registrant Organization: BEST, a. s.
+Registrant Street: Rybnice 148
+Registrant City: Kaznejov
+Registrant State/Province: na
+Registrant Postal Code: 33151
+Registrant Country: CZ
+Registrant Phone: +420.373720111
+Registrant Phone Ext:
+Registrant Fax:
+Registrant Fax Ext:
+Registrant Email: info@best-as.cz
+Registry Admin ID: C171278825-LRMS
+Admin Name: Roman Dusek
+Admin Organization: MEDIA FACTORY CR a.s.
+Admin Street: Zerotinova 32
+Admin City: Praha 3,
+Admin State/Province: --
+Admin Postal Code: 130 00
+Admin Country: CZ
+Admin Phone: +420.226216616
+Admin Phone Ext:
+Admin Fax:
+Admin Fax Ext:
+Admin Email: domeny@mediafactory.cz
+Registry Tech ID: C171278826-LRMS
+Tech Name: Petr Smida
+Tech Organization: Active24 s.r.o.
+Tech Street: Sokolovska 394/17
+Tech City: Praha 8
+Tech State/Province: CZ
+Tech Postal Code: 18600
+Tech Country: CZ
+Tech Phone: +42.0234262000
+Tech Phone Ext:
+Tech Fax: +42.0234262009
+Tech Fax Ext:
+Tech Email: registrace@domeny.cz
+Registry Billing ID: C171278828-LRMS
+Billing Name: Petr Smida
+Billing Organization: Active 24, s.r.o.
+Billing Street: Sokolovska 394/17
+Billing City: Praha
+Billing State/Province: CZ
+Billing Postal Code: 18600
+Billing Country: CZ
+Billing Phone: +42.234262000
+Billing Phone Ext:
+Billing Fax: +42.234262009
+Billing Fax Ext:
+Billing Email: registration@domeny.cz
+Name Server: ALFA.NS.ACTIVE24.CZ
+Name Server: BETA.NS.ACTIVE24.CZ
+DNSSEC: unsigned
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of WHOIS database: 2017-09-04T03:45:36Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+Access to AFILIAS WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the Afilias registry database. The data in this record is provided by Afilias Limited for informational purposes only, and Afilias does not guarantee its accuracy.  This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to(a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or Afilias except as reasonably necessary to register domain names or modify existing registrations. All rights reserved. Afilias reserves the right to modify these terms at any time. By submitting this query, you agree to abide by this policy.
