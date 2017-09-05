@@ -18,14 +18,14 @@ class Fetcher
     private $parser;
     private $tldExtractor;
 
-    public function __construct(
-        NetworkClient $networkClient,
-        ServerResolver $resolver,
-        Parser $parser
-    ) {
-        $this->networkClient = $networkClient;
-        $this->resolver = $resolver;
-        $this->parser = $parser;
+    public function __construct()
+    {
+        $this->networkClient = new NetworkClient();
+        $this->resolver = new ServerResolver(
+            new NetworkClient(),
+            new Parser()
+        );
+        $this->parser = new Parser();
         $this->tldExtractor = new Extract();
     }
 

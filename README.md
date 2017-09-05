@@ -4,8 +4,8 @@
 
 ## Installation
 
-```php
-Here goes composer command once package is published on Packagist
+```bash
+composer require oarkhipov/whois
 ```
 
 ### Laravel
@@ -17,7 +17,16 @@ Add this to your providers array in `config/app.php`:
 Oarkhipov\Whois\Laravel\WhoisServiceProvider::class,
 ```
 
-Now you are able to typehint it like that:
+## Usage
+
+Firstly, create `Fetcher` class instance:
+```php
+use Oarkhipov\Whois\Fetcher;
+
+$fetcher = new Fetcher();
+```
+
+With Laravel you are able to typehint it like that:
 
 ```php
 use Oarkhipov\Whois\Fetcher;
@@ -39,17 +48,8 @@ or resolve from container by `whois` name like that:
 $fetcher = $this->app->make('whois');
 ```
 
-## Usage
-
-Firstly, retrieve `Fetcher` class instance through the package facade:
-```php
-use Oarkhipov\Whois\Facade;
-
-$fetcher = Facade::create();
-```
-
-(this is already done for you in case you use Laravel)  
 Now to retrieve WHOIS record:
+
 ```php
 $whois = $fetcher->fetch('http://facebook.com');
 ```

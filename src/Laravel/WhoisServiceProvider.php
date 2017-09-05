@@ -3,14 +3,14 @@
 namespace Oarkhipov\Whois\Laravel;
 
 use Illuminate\Support\ServiceProvider;
-use Oarkhipov\Whois\Facade;
+use Oarkhipov\Whois\Fetcher;
 
 class WhoisServiceProvider extends ServiceProvider
 {
     public function register()
     {
         $this->app->bind('whois', function ($app) {
-            return Facade::create();
+            return new Fetcher();
         });
     }
 }
