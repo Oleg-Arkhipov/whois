@@ -53,3 +53,6 @@ Now to retrieve WHOIS record:
 ```php
 $whois = $fetcher->fetch('http://facebook.com');
 ```
+
+Check wiki for a [list of supported WHOIS record fields](https://github.com/Oleg-Arkhipov/whois/wiki/Supported-WHOIS-record-fields)
+and [tested top-level domains](https://github.com/Oleg-Arkhipov/whois/wiki/Tested-top-level-domains). 
