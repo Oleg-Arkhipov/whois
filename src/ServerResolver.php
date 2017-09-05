@@ -10,7 +10,7 @@ use Oarkhipov\Whois\Parser\Parser;
  */
 class ServerResolver
 {
-    /** @var string Main root server responsible for a lot of Top Level Domains. */
+    /** @var string Main root server responsible for a lot of top-level domains. */
     private $IANA_SERVER = 'whois.iana.org';
 
     private $networkClient;
@@ -23,7 +23,7 @@ class ServerResolver
     }
 
     /**
-     * Returns possible WHOIS servers responsible for the given Top Level Domain.
+     * Returns possible WHOIS servers responsible for the given top-level domain.
      *
      * One of these servers may exist and keep WHOIS records about SLDs within given TLD.
      * @param string $domain
@@ -47,19 +47,17 @@ class ServerResolver
     }
 
     /**
-     * Returns possible WHOIS servers responsible for the given Second Level Domain.
+     * Returns possible WHOIS servers responsible for the given second-Level domain.
      *
-      One of these servers may exist and keep WHOIS records about third level domains within given SLD.
+     * One of these servers may exist and keep WHOIS records about third level domains within given SLD.
      * @param string $domain
      * @return string[]
      */
     public function resolveServersForSld(string $domain): array
     {
-        $servers = [];
-
-        $servers[] = 'whois.' . $domain;
-        $servers[] = 'whois.nic.' . $domain;
-
-        return $servers;
+        return [
+            'whois.' . $domain,
+            'whois.nic.' . $domain
+        ];
     }
 }

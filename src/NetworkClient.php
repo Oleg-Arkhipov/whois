@@ -23,7 +23,7 @@ class NetworkClient
     public function requestWhois(string $whoisServer, string $domain): WhoisResponse
     {
         $response = new WhoisResponse();
-        $socketAddress = "tcp://$whoisServer:43";
+        $socketAddress = "tcp://{$whoisServer}:43";
         try {
             $fp = stream_socket_client($socketAddress, $errno, $errstr, $this->connectionTimeout);
         } catch (\Exception $e) {
