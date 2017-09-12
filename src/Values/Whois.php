@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Oarkhipov\Whois\Values;
 
@@ -6,35 +8,34 @@ use Carbon\Carbon;
 
 /**
  * Object containing WHOIS record for a particular domain.
- * @package Oarkhipov\Whois
  */
 class Whois
 {
-    /** @var  string */
+    /** @var string */
     public $domain;
 
-    /** @var  string */
+    /** @var string */
     public $registryDomainId;
 
-    /** @var  string */
+    /** @var string */
     public $whoisServer;
 
-    /** @var  Carbon */
+    /** @var Carbon */
     public $creationDate;
 
-    /** @var  Carbon */
+    /** @var Carbon */
     public $updateDate;
 
-    /** @var  Carbon */
+    /** @var Carbon */
     public $expirationDate;
 
-    /** @var  Registrar */
+    /** @var Registrar */
     public $registrar;
 
-    /** @var  Registrant */
+    /** @var Registrant */
     public $registrant;
 
-    /** @var  string[] */
+    /** @var string[] */
     public $nameServers = [];
 
     public function __construct()

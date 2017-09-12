@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Oarkhipov\Whois\Parser;
 
@@ -7,7 +9,6 @@ use Oarkhipov\Whois\Values\Whois;
 
 /**
  * Class responsible for assigning key-value pairs from response to a WHOIS object.
- * @package Oarkhipov\Whois\Parser
  */
 class Mapper
 {
@@ -24,6 +25,7 @@ class Mapper
      *   'array' - field appears multiple time in a response, all values should be placed in array.
      * 'transformation' - indicates that field's value has to be processed in a certain way after retrieving.
      *   See $this->transformDateTime for an example.
+     *
      * @var array
      */
     private $mapping = [
@@ -35,14 +37,14 @@ class Mapper
             ],
         ],
         'registryDomainId' => [
-            'keys' => ['registry domain id']
+            'keys' => ['registry domain id'],
         ],
         'whoisServer' => [
             'keys' => ['whois', 'whois server', 'registrar whois server'],
         ],
         'creationDate' => [
             'transformation' => 'dateTime',
-            'keys' => [
+            'keys'           => [
                 'creation date',
                 'created',
                 'domain registration date',
@@ -54,7 +56,7 @@ class Mapper
         ],
         'updateDate' => [
             'transformation' => 'dateTime',
-            'keys' => [
+            'keys'           => [
                 'updated date',
                 'domain last updated date',
                 'last updated on',
@@ -65,7 +67,7 @@ class Mapper
         ],
         'expirationDate' => [
             'transformation' => 'dateTime',
-            'keys' => [
+            'keys'           => [
                 'expiration date',
                 'paid-till',
                 'registry expiry date',
@@ -87,49 +89,50 @@ class Mapper
             'keys' => ['registrar abuse contact phone'],
         ],
         'registrant.name' => [
-            'keys' => ['registrant name', 'person']
+            'keys' => ['registrant name', 'person'],
         ],
         'registrant.organization' => [
-            'keys' => ['registrant organization']
+            'keys' => ['registrant organization'],
         ],
         'registrant.street' => [
-            'keys' => ['registrant street']
+            'keys' => ['registrant street'],
         ],
         'registrant.city' => [
-            'keys' => ['registrant city']
+            'keys' => ['registrant city'],
         ],
         'registrant.state' => [
-            'keys' => ['registrant state/province']
+            'keys' => ['registrant state/province'],
         ],
         'registrant.postalCode' => [
-            'keys' => ['registrant postal code']
+            'keys' => ['registrant postal code'],
         ],
         'registrant.country' => [
-            'keys' => ['registrant country']
+            'keys' => ['registrant country'],
         ],
         'registrant.phone' => [
-            'keys' => ['registrant phone']
+            'keys' => ['registrant phone'],
         ],
         'registrant.phoneExtension' => [
-            'keys' => ['registrant phone ext']
+            'keys' => ['registrant phone ext'],
         ],
         'registrant.fax' => [
-            'keys' => ['registrant fax']
+            'keys' => ['registrant fax'],
         ],
         'registrant.faxExtension' => [
-            'keys' => ['registrant fax ext']
+            'keys' => ['registrant fax ext'],
         ],
         'registrant.email' => [
-            'keys' => ['registrant email']
+            'keys' => ['registrant email'],
         ],
         'nameServers' => [
             'type' => 'array',
-            'keys' => ['nserver', 'name server']
+            'keys' => ['nserver', 'name server'],
         ],
     ];
 
     /**
      * @param string[][] $keyValuePairs Each element is array of the form: [key, value].
+     *
      * @return Whois
      */
     public function assignKeyValuePairs(array $keyValuePairs): Whois
@@ -142,11 +145,13 @@ class Mapper
                 $this->assignValueToField($whois, $fieldName, $value);
             }
         }
+
         return $whois;
     }
 
     /**
      * @param string $key
+     *
      * @return null|string Null if no field was found by the given key.
      */
     private function findFieldNameByKey(string $key): ?string
@@ -156,11 +161,10 @@ class Mapper
                 return $fieldName;
             }
         }
-        return null;
     }
 
     /**
-     * @param Whois $whois
+     * @param Whois  $whois
      * @param string $fieldName
      * @param string $value
      */
@@ -176,7 +180,7 @@ class Mapper
                 $whois->{$fieldName} = $value;
             }
         } else {
-            list ($fieldName, $subFieldName) = explode('.', $fieldName);
+            list($fieldName, $subFieldName) = explode('.', $fieldName);
             if ($ofArrayType) {
                 $whois->{$fieldName}->{$subFieldName}[] = $value;
             } else {
@@ -187,21 +191,25 @@ class Mapper
 
     /**
      * Passes given field's value through all required transformations.
+     *
      * @param string $fieldName
      * @param string $value
+     *
      * @return mixed|string Resulting value (its type could change).
      */
     private function applyTransformations(string $fieldName, string $value)
     {
         if (isset($this->mapping[$fieldName]['transformation'])) {
             $transformationName = $this->mapping[$fieldName]['transformation'];
-            $value = call_user_func([$this, 'transform' . ucfirst($transformationName)], $value);
+            $value = call_user_func([$this, 'transform'.ucfirst($transformationName)], $value);
         }
+
         return $value;
     }
 
     /**
      * @param string $value
+     *
      * @return Carbon
      */
     private function transformDateTime(string $value): Carbon

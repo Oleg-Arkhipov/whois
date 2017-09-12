@@ -1,46 +1,47 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Oarkhipov\Whois\Values;
 
 /**
  * Object containing part of WHOIS record about registrant.
- * @package Oarkhipov\Whois\Values
  */
 class Registrant
 {
-    /** @var  string */
+    /** @var string */
     public $name;
 
-    /** @var  string */
+    /** @var string */
     public $organization;
 
-    /** @var  string */
+    /** @var string */
     public $street;
 
-    /** @var  string */
+    /** @var string */
     public $city;
 
-    /** @var  string */
+    /** @var string */
     public $state;
 
-    /** @var  string */
+    /** @var string */
     public $postalCode;
 
-    /** @var  string */
+    /** @var string */
     public $country;
 
-    /** @var  string */
+    /** @var string */
     public $phone;
 
-    /** @var  string */
+    /** @var string */
     public $phoneExtension;
 
-    /** @var  string */
+    /** @var string */
     public $fax;
 
-    /** @var  string */
+    /** @var string */
     public $faxExtension;
 
-    /** @var  string */
+    /** @var string */
     public $email;
 }
