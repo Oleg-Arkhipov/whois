@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Oarkhipov\Whois;
 
@@ -6,7 +8,6 @@ use Oarkhipov\Whois\Parser\Parser;
 
 /**
  * Class providing functionality to find WHOIS servers with required records.
- * @package Oarkhipov\Whois
  */
 class ServerResolver
 {
@@ -26,7 +27,9 @@ class ServerResolver
      * Returns possible WHOIS servers responsible for the given top-level domain.
      *
      * One of these servers may exist and keep WHOIS records about SLDs within given TLD.
+     *
      * @param string $domain
+     *
      * @return string[]
      */
     public function resolveServersForTld(string $domain): array
@@ -39,9 +42,9 @@ class ServerResolver
             $servers[] = $ianaWhois->whoisServer;
         }
 
-        $servers[] = 'whois.nic.' . $domain;
-        $servers[] = 'whois.' . $domain;
-        $servers[] = $domain . '.whois-servers.net';
+        $servers[] = 'whois.nic.'.$domain;
+        $servers[] = 'whois.'.$domain;
+        $servers[] = $domain.'.whois-servers.net';
 
         return $servers;
     }
@@ -50,14 +53,16 @@ class ServerResolver
      * Returns possible WHOIS servers responsible for the given second-Level domain.
      *
      * One of these servers may exist and keep WHOIS records about third level domains within given SLD.
+     *
      * @param string $domain
+     *
      * @return string[]
      */
     public function resolveServersForSld(string $domain): array
     {
         return [
-            'whois.' . $domain,
-            'whois.nic.' . $domain
+            'whois.'.$domain,
+            'whois.nic.'.$domain,
         ];
     }
 }

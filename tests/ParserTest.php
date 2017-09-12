@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 use Carbon\Carbon;
 use Oarkhipov\Whois\Parser\Parser;
@@ -8,10 +10,10 @@ use PHPUnit\Framework\TestCase;
 
 class ParserTest extends TestCase
 {
-    /** @var  Parser */
+    /** @var Parser */
     protected $parser;
 
-    /** @var  WhoisResponse */
+    /** @var WhoisResponse */
     protected $response;
 
     protected function setUp()
@@ -23,7 +25,7 @@ class ParserTest extends TestCase
 
     public function testOnSingleLineFormatResponse()
     {
-        $this->response->raw = file_get_contents(__DIR__ . '/assets/responses/single_line.txt');
+        $this->response->raw = file_get_contents(__DIR__.'/assets/responses/single_line.txt');
 
         $whois = $this->parser->parse($this->response);
 

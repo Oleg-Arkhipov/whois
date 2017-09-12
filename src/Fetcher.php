@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Oarkhipov\Whois;
 
@@ -8,8 +10,6 @@ use Oarkhipov\Whois\Values\Whois;
 
 /**
  * Fetcher of WHOIS information.
- *
- * @package Oarkhipov\Whois
  */
 class Fetcher
 {
@@ -33,6 +33,7 @@ class Fetcher
      * Fetch WHOIS information for a given domain.
      *
      * @param string $domain Domain name (with or without protocol)
+     *
      * @return Whois
      */
     public function fetch(string $domain): Whois
@@ -54,6 +55,7 @@ class Fetcher
                 continue;
             }
             $whois = $this->parser->parse($response);
+
             return $whois;
         }
 

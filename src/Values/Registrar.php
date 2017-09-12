@@ -1,22 +1,23 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Oarkhipov\Whois\Values;
 
 /**
  * Object containing part of WHOIS record about registrar.
- * @package Oarkhipov\Whois\Values
  */
 class Registrar
 {
-    /** @var  string */
+    /** @var string */
     public $name;
 
-    /** @var  string */
+    /** @var string */
     public $url;
 
-    /** @var  string */
+    /** @var string */
     public $abuseEmail;
 
-    /** @var  string */
+    /** @var string */
     public $abusePhone;
 }

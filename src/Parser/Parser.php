@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Oarkhipov\Whois\Parser;
 
@@ -7,7 +9,6 @@ use Oarkhipov\Whois\Values\WhoisResponse;
 
 /**
  * Parser responsible for converting raw WHOIS response (string) into ready to use object.
- * @package Oarkhipov\Whois\Parser
  */
 class Parser
 {
@@ -15,6 +16,7 @@ class Parser
 
     /**
      * @param WhoisResponse $response
+     *
      * @return Whois
      */
     public function parse(WhoisResponse $response): Whois
@@ -30,6 +32,7 @@ class Parser
             }
         }
         $whois = $parser->parse($response);
+
         return $whois;
     }
 
@@ -37,6 +40,7 @@ class Parser
      * Detects response format for the further parsing.
      *
      * @param WhoisResponse $response
+     *
      * @return int
      */
     private function detectResponseFormat(WhoisResponse $response): int
