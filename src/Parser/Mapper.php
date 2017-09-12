@@ -176,7 +176,7 @@ class Mapper
                 $whois->{$fieldName} = $value;
             }
         } else {
-            list ($fieldName, $subFieldName) = explode('.', $fieldName);
+            list($fieldName, $subFieldName) = explode('.', $fieldName);
             if ($ofArrayType) {
                 $whois->{$fieldName}->{$subFieldName}[] = $value;
             } else {
