@@ -17,16 +17,18 @@ class Fetcher
     private $resolver;
     private $parser;
     private $tldExtractor;
+    private $merger;
 
     public function __construct()
     {
         $this->networkClient = new NetworkClient();
         $this->resolver = new ServerResolver(
-            new NetworkClient(),
-            new Parser()
+          new NetworkClient(),
+          new Parser()
         );
         $this->parser = new Parser();
         $this->tldExtractor = new Extract();
+        $this->merger = new WhoisMerger();
     }
 
     /**
@@ -48,15 +50,30 @@ class Fetcher
             $possibleServers = $this->resolver->resolveServersForSld($sld);
         }
 
+        $whois = new Whois();
+
+        /* Retrieve main WHOIS record */
         foreach ($possibleServers as $server) {
             $response = $this->networkClient->requestWhois($server, $sld);
             if (!$response->received) {
                 continue;
             }
             $whois = $this->parser->parse($response);
-            return $whois;
+            break;
         }
 
-        return new Whois();
+        /* Retrieve more detailed WHOIS record if possible */
+        $followingWhois = null;
+        if (!empty($whois->whoisServer)) {
+            $response = $this->networkClient->requestWhois($whois->whoisServer, $sld);
+            if ($response->received) {
+                $followingWhois = $this->parser->parse($response);
+            }
+            if (!is_null($followingWhois)) {
+                $whois = $this->merger->merge($whois, $followingWhois);
+            }
+        }
+
+        return $whois;
     }
 }
