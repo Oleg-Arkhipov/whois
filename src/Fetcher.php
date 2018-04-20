@@ -59,6 +59,9 @@ class Fetcher
                 continue;
             }
             $whois = $this->parser->parse($response);
+            if (strpos($response->raw, 'Reserved by Registry Operator') !== false){
+                $whois->reserved = true;
+            }
             break;
         }
 
