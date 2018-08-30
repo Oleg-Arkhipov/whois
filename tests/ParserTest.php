@@ -54,4 +54,33 @@ class ParserTest extends TestCase
 
         $this->assertEquals($correctWhois, $whois, '', 0.0, 10, false, true);
     }
+
+    public function testOnNotFoundResponse(): void
+    {
+        $files = [
+            __DIR__ . '/assets/responses/single_line_not_found_1.txt',
+            __DIR__ . '/assets/responses/single_line_not_found_2.txt',
+        ];
+
+        foreach ($files as $file) {
+            $this->response->raw = file_get_contents($file);
+
+            $whois = $this->parser->parse($this->response);
+
+            $correctWhois = new Whois();
+            $correctWhois->registered = false;
+            $this->assertEquals($correctWhois, $whois);
+        }
+    }
+
+    public function testOnReservedResponse(): void
+    {
+        $this->response->raw = file_get_contents(__DIR__ . '/assets/responses/single_line_reserved.txt');
+
+        $whois = $this->parser->parse($this->response);
+
+        $correctWhois = new Whois();
+        $correctWhois->reserved = true;
+        $this->assertEquals($correctWhois, $whois);
+    }
 }

@@ -10,6 +10,20 @@ use Carbon\Carbon;
  */
 class Whois
 {
+    /**
+     * Indicates whether domain is already registered by someone (not available).
+     * @var bool
+     */
+    public $registered = false;
+
+    /**
+     * Indicates whether domain is reserved by registry operator.
+     *
+     * Reserved domains are not open for registration by third parties.
+     * @var bool
+     */
+    public $reserved = false;
+
     /** @var  string */
     public $domain;
 
