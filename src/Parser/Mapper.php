@@ -135,6 +135,8 @@ class Mapper
     public function assignKeyValuePairs(array $keyValuePairs): Whois
     {
         $whois = new Whois();
+        $whois->registered = true;
+
         foreach ($keyValuePairs as $keyValuePair) {
             list($key, $value) = $keyValuePair;
             $fieldName = $this->findFieldNameByKey($key);
@@ -142,6 +144,7 @@ class Mapper
                 $this->assignValueToField($whois, $fieldName, $value);
             }
         }
+
         return $whois;
     }
 
