@@ -28,6 +28,8 @@ class ParserTest extends TestCase
         $whois = $this->parser->parse($this->response);
 
         $correctWhois = new Whois();
+        $correctWhois->registered = true;
+        $correctWhois->reserved = false;
         $correctWhois->domain = 'BEST.INFO';
         $correctWhois->registryDomainId = 'D2272416-LRMS';
         $correctWhois->whoisServer = null;
