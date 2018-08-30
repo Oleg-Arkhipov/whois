@@ -58,7 +58,6 @@ class Fetcher
             if (!$response->received) {
                 continue;
             }
-            $whois = $this->parser->parse($response);
             break;
         }
 
@@ -72,6 +71,10 @@ class Fetcher
             if (!is_null($followingWhois)) {
                 $whois = $this->merger->merge($whois, $followingWhois);
             }
+        }
+
+        if (strpos($response->raw, 'Reserved by Registry Operator') !== false) {
+            $whois->reserved = true;
         }
 
         return $whois;

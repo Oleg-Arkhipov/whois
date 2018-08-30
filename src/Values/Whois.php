@@ -51,6 +51,9 @@ class Whois
     /** @var  string[] */
     public $nameServers = [];
 
+    /** @var  boolean[] */
+    public $reserved = false;
+
     public function __construct()
     {
         $this->registrar = new Registrar();
